@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía Universitaria</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+
+<body class="bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4 py-8">
+    <!-- Header -->
+    <header class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-indigo-800 mb-3">Guía de Ubicaciones</h1>
+      <p class="text-lg text-gray-600">Encuentra fácilmente los lugares importantes de tu universidad</p>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="mb-10 max-w-2xl mx-auto">
+      <div class="relative">
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="Busca aulas, laboratorios, oficinas..."
+          class="w-full py-3 px-5 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent shadow-sm"
+        >
+        <button
+          id="searchButton"
+          class="absolute right-3 top-1/2 transform -translate-y-1/2 bg-indigo-600 text-white p-2 rounded-full hover:bg-indigo-700 transition"
+        >
+          Buscar
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex flex-col lg:flex-row gap-8">
+      <!-- Locations List -->
+      <div class="lg:w-1/3">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6">Ubicaciones comunes</h2>
+        <div id="locations-container" class="space-y-4"></div>
+      </div>
+
+      <!-- Details Section -->
+      <div class="lg:w-2/3">
+        <div id="location-details" class="mt-6 bg-white p-6 rounded-lg shadow-sm hidden">
+          <h3 id="detail-title" class="text-xl font-semibold mb-2"></h3>
+          <p id="detail-description" class="text-gray-600 mb-4"></p>
+          <div class="flex items-center text-gray-500 mb-4">
+            <span id="detail-location"></span>
+          </div>
+          <img id="detail-image" class="w-full h-auto rounded-lg" alt="Imagen de la ubicación" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
