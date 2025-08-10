@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,31 +9,23 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-
 <body class="bg-gray-500">
   <div class="max-w-6xl mx-auto px-4 py-8">
     <!-- Header -->
     <header class="text-center mb-12">
-      <h1 class="text-4xl font-bold text-indigo-800 mb-3">Guía de Ubicaciones</h1>
+      <h1 class="text-4xl font-bold text-indigo-900 mb-3">Guía de Ubicaciones</h1>
       <p class="text-lg text-black-600">Encuentra fácilmente los lugares importantes de tu universidad</p>
     </header>
 
     <!-- Search Bar -->
     <div class="mb-10 max-w-2xl mx-auto">
       <div class="relative">
-        <input 
-          type="text" 
-          id="searchInput" 
-          placeholder="Busca aulas, laboratorios, oficinas..."
-          class="w-full py-3 px-5 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent shadow-sm"
-        >
-        <button
-          id="searchButton"
-          class="absolute right-3 top-1/2 transform -translate-y-1/2 bg-indigo-600 text-white p-2 rounded-full hover:bg-indigo-700 transition"
-        >
+        <input type="text" id="searchInput" placeholder="Busca aulas, laboratorios, oficinas..."
+          class="w-full py-3 px-5 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent shadow-sm">
+        <button id="searchButton"
+          class="absolute right-3 top-1/2 transform -translate-y-1/2 bg-indigo-600 text-white p-2 rounded-full hover:bg-indigo-700 transition">
           Buscar
         </button>
-      
       </div>
     </div>
 
@@ -40,27 +33,53 @@
     <div class="flex flex-col items-center gap-8">
       <!-- Locations List -->
       <div class="w-full max-w-3xl">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-6">Ubicaciones comunes</h2>
-        <h3 class="text-xl font-semibold mb-2">Selecciona una ubicación <br> Sus detalles apareceran desplegados</h3>
-        
+        <div
+          class="bg-gradient-to-b from-white to-gray-50 flex flex-col items-center m-5 gap-2 p-6 rounded-xl shadow-md border border-gray-200">
+          <h2 class="text-2xl font-semibold text-gray-700 mb-3">Ubicaciones comunes</h2>
+          <p class="text-lg text-gray-500 text-center">
+            Selecciona una ubicación <br>
+            Sus detalles aparecerán desplegados
+          </p>
+        </div>
+
         <!-- Filter Buttons Section -->
         <div class="mb-6 flex flex-wrap gap-2 justify-center">
-          <button class="filter-btn bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-gray-300 transition" data-filter="all">Todas</button>
-          <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition" data-filter="Administrativo">Administrativo</button>
-          <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition" data-filter="Académico">Académico</button>
-          <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition" data-filter="Laboratorios">Laboratorios</button>
-          <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition" data-filter="Servicios">Servicios</button>
-          <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition" data-filter="Eventos">Eventos</button>
-          <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition" data-filter="Deportes">Deportes</button>
-          <!-- Puedes añadir más botones para pisos o cualquier otra categoría que desees -->
+          <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition"
+            data-filter="all">Todas</button>
+          <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition"
+            data-filter="Administrativo">Administrativo</button>
+          <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition"
+            data-filter="Académico">Académico</button>
+          <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition"
+            data-filter="Laboratorios">Laboratorios</button>
+          <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition"
+            data-filter="Servicios">Servicios</button>
+          <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition"
+            data-filter="Eventos">Eventos</button>
+          <div class="relative inline-block text-left">
+            <button id="floorDropdownBtn"
+              class="bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition inline-flex items-center">
+              Pisos
+              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="floorDropdownMenu"
+              class="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden z-10">
+              <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                <!-- Floor options will be populated by JavaScript -->
+              </div>
+            </div>
+          </div>
         </div>
 
         <div id="locations-container" class="space-y-4"></div>
       </div>
-
     </div>
   </div>
 
   <script src="script.js"></script>
 </body>
+
 </html>
