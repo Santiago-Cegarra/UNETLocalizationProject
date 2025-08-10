@@ -114,7 +114,7 @@ function toggleLocationDetails(location, clickedCard) {
     </div>
     <img src="${location.image}" class="w-full h-auto rounded-lg" alt="Imagen de la ubicación" />
   `;
-  // Insert the detail card right after the clicked location card
+  
   clickedCard.parentNode.insertBefore(detailCard, clickedCard.nextSibling);
   activeDetailCard = detailCard;
   // Scroll to the newly opened detail card for better UX on mobile
