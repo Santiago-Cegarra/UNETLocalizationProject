@@ -1,5 +1,3 @@
-
-// Sample data - replace with your actual university locations
 const locations = [
   {
     id: 1,
@@ -50,6 +48,7 @@ const locations = [
     floor: "Planta baja",
     image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/10938bad-fce0-4a7f-944b-3ebb4233bbfd.png"
   },
+  
   {
     id: 6,
     name: "Gimnasio Universitario",
@@ -61,43 +60,73 @@ const locations = [
   }
 ];
 
-
-
 // DOM elements
 const locationsContainer = document.getElementById('locations-container');
 const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
-const detailTitle = document.getElementById('detail-title');
-const detailDescription = document.getElementById('detail-description');
-const detailLocation = document.getElementById('detail-location');
-const detailImage = document.getElementById('detail-image');
-const locationDetails = document.getElementById('location-details');
+const locationDetailsPanel = document.getElementById('location-details'); // This is the fixed panel for desktop
+const filterButtons = document.querySelectorAll('.filter-btn'); // Get all filter buttons
 
-// Display all locations initially
+let activeDetailCard = null; // To keep track of the currently open detail card
+
 function displayLocations(locationsToDisplay = locations) {
   locationsContainer.innerHTML = '';
   
+  if (locationsToDisplay.length === 0) {
+    locationsContainer.innerHTML = '<p class="text-gray-600 text-center">No se encontraron ubicaciones para esta categoría.</p>';
+    return;
+  }
+
   locationsToDisplay.forEach(location => {
     const locationCard = document.createElement('div');
-    locationCard.className = 'bg-white p-5 rounded-lg shadow cursor-pointer hover:shadow-md';
+    locationCard.className = 'bg-white p-5 rounded-lg shadow cursor-pointer hover:shadow-md transition-all duration-300 hover:bg-gray-50 hover:border-l-4 hover:border-indigo-400';
     locationCard.innerHTML = `
       <h3 class="font-semibold text-lg text-gray-800">${location.name}</h3>
       <p class="text-gray-600 line-clamp-2">${location.description}</p>
     `;
     
-    locationCard.addEventListener('click', () => showLocationDetails(location));
+    locationCard.addEventListener('click', () => toggleLocationDetails(location, locationCard));
     locationsContainer.appendChild(locationCard);
   });
 }
 
-// Show location details in the right panel
-function showLocationDetails(location) {
-  detailTitle.textContent = location.name;
-  detailDescription.textContent = location.description;
-  detailLocation.textContent = location.location;
-  detailImage.src = location.image;
-  
-  locationDetails.classList.remove('hidden');
+// Toggle location details (show/hide)
+function toggleLocationDetails(location, clickedCard) {
+  if (activeDetailCard && activeDetailCard.previousElementSibling === clickedCard) {
+    activeDetailCard.remove();
+    activeDetailCard = null;
+    return;
+  }
+
+  // Remove any previously active detail card
+  if (activeDetailCard) {
+    activeDetailCard.remove();
+    activeDetailCard = null;
+  }
+  // Create the detail card dynamically
+  const detailCard = document.createElement('div');
+  detailCard.className = 'location-detail-card mt-4 bg-white p-6 rounded-lg shadow-md'; // Add a specific class for styling
+  detailCard.innerHTML = `
+    <h3 class="text-xl font-semibold mb-2">${location.name}</h3>
+    <p class="text-gray-600 mb-4">${location.description}</p>
+    <div class="flex items-center text-gray-500 mb-4">
+      <span>${location.location}</span>
+    </div>
+    <img src="${location.image}" class="w-full h-auto rounded-lg" alt="Imagen de la ubicación" />
+  `;
+  // Insert the detail card right after the clicked location card
+  clickedCard.parentNode.insertBefore(detailCard, clickedCard.nextSibling);
+  activeDetailCard = detailCard;
+  // Scroll to the newly opened detail card for better UX on mobile
+  detailCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // For desktop, still show in the fixed panel
+  if (window.innerWidth >= 1024) { // Tailwind's 'lg' breakpoint
+    // This part needs to be adjusted if you want a fixed panel for details
+    // For now, we'll just hide it as it's not fully implemented in the provided context
+    locationDetailsPanel.classList.add('hidden'); 
+  } else {
+    locationDetailsPanel.classList.add('hidden'); // Hide the fixed panel on mobile
+  }
 }
 
 // Search functionality
@@ -105,6 +134,15 @@ function searchLocations() {
   const searchTerm = searchInput.value.toLowerCase();
   if (searchTerm.trim() === '') {
     displayLocations();
+    // Hide any open detail card when search is cleared
+    if (activeDetailCard) {
+      activeDetailCard.remove();
+      activeDetailCard = null;
+    }
+    // Show fixed panel on desktop if search is cleared
+    if (window.innerWidth >= 1024) {
+        // locationDetailsPanel.classList.remove('hidden'); // Re-enable if fixed panel is used
+    }
     return;
   }
   
@@ -114,6 +152,35 @@ function searchLocations() {
   );
   
   displayLocations(filtered);
+  // Hide any open detail card when search results change
+  if (activeDetailCard) {
+    activeDetailCard.remove();
+    activeDetailCard = null;
+  }
+  // Hide fixed panel on desktop when search results change
+  if (window.innerWidth >= 1024) {
+    locationDetailsPanel.classList.add('hidden');
+  }
+}
+
+// Filter functionality
+function filterLocations(category) {
+  let filtered = [];
+  if (category === 'all') {
+    filtered = locations;
+  } else {
+    filtered = locations.filter(location => 
+      location.category === category
+    );
+  }
+  displayLocations(filtered);
+  // Hide any open detail card when filter changes
+  if (activeDetailCard) {
+    activeDetailCard.remove();
+    activeDetailCard = null;
+  }
+  // Clear search input when filter is applied
+  searchInput.value = '';
 }
 
 // Event listeners
@@ -122,5 +189,35 @@ searchInput.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') searchLocations();
 });
 
+// Add event listeners for filter buttons
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const filterCategory = button.dataset.filter;
+    filterLocations(filterCategory);
+
+    // Optional: Add active state to the clicked button
+    filterButtons.forEach(btn => btn.classList.remove('bg-indigo-600', 'text-white'));
+    button.classList.add('bg-indigo-600', 'text-white');
+  });
+});
+
+
 // Initialize
-displayLocations();
+filterLocations('all');
+
+// Handle window resize to switch between mobile/desktop view
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 1024) {
+    // If resizing to desktop, ensure the fixed panel is visible and dynamic card is hidden
+    if (activeDetailCard) {
+      activeDetailCard.remove();
+      activeDetailCard = null;
+    }
+    // If a location was previously selected, show its details in the fixed panel
+    // (This part would require storing the last selected location, which is not implemented here for simplicity)
+    // locationDetailsPanel.classList.remove('hidden'); // Re-enable if fixed panel is used
+  } else {
+    // If resizing to mobile, hide the fixed panel
+    locationDetailsPanel.classList.add('hidden');
+  }
+});

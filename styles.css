@@ -21,5 +21,20 @@
   width: 100%;
   height: 100%;
   background-color: #f3f4f6; /* gris claro de fondo */
+}
 
+/* Estilos para la tarjeta de detalles que se despliega en móvil */
+.location-detail-card {
+  /* Puedes añadir transiciones si quieres una animación suave al abrir/cerrar */
+  transition: all 0.3s ease-in-out;
+  /* Asegúrate de que tenga un margen superior para separarse de la tarjeta de ubicación */
+  margin-top: 1rem; 
+}
+
+/* Opcional: Estilos para ocultar el panel de detalles en móvil si no se usa */
+/* Esto ya se maneja con lg:block en el HTML y JS, pero es bueno tenerlo en cuenta */
+@media (max-width: 1023px) { /* Menos que el breakpoint 'lg' de Tailwind */
+  #location-details {
+    display: none; /* Oculta el panel fijo en pantallas pequeñas */
+  }
 }
