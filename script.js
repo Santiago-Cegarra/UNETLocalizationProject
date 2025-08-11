@@ -1,11 +1,11 @@
 const locations = [
   {
     id: 1,
-    name: "Edificio de Rectoría",
-    description: "Oficinas administrativas principales de la universidad, incluyendo rectoría y secretaría académica.",
-    location: "Zona central del campus, junto al jardín principal",
+    name: "Decanato de Docencia",
+    description: "Oficinas administrativas principales de el edificio, Departamento de Ing Informatica.",
+    location: "Primer Pasillo de el Edificio, Viniendo por la entrada izquierda",
     category: "Administrativo",
-    floor: "Planta baja",
+    floor: "Planta Baja",
     image: "images/decanato.test.jpg"
   },
   
@@ -21,21 +21,21 @@ const locations = [
   
   {
     id: 3,
-    name: "Laboratorio de Computación 5",
-    description: "Laboratorio equipado con 30 computadoras para clases de informática y programación.",
-    location: "Edificio de Ciencias, ala este, piso 1",
+    name: "Laboratorios de Computación Valerio Wong",
+    description: "Laboratorio equipado con mas de 10 salones con computadoras para clases de informática y programación.",
+    location: "Primer Laboratorio de el Edificio, Planta Baja",
     category: "Laboratorios",
-    floor: "1er piso",
+    floor: "Planta Baja",
     image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f97ce7b3-4741-468a-ab46-400d0f962c8b.png"
   },
   
   {
     id: 4,
-    name: "Cafetería Principal",
-    description: "Área de alimentos y bebidas con capacidad para 120 personas y zona de descanso.",
-    location: "Entre el edificio A y B, frente a las canchas",
+    name: "Lobby Principal",
+    description: "Área de Estudio y zona de descanso principal del Edificio.",
+    location: "Entrada Principal, Girando por la Izquierda",
     category: "Servicios",
-    floor: "2do piso",
+    floor: "Planta Baja",
     image: "images/lobby.jpg"
   },
   
@@ -45,7 +45,7 @@ const locations = [
     description: "Espacio para eventos académicos con capacidad para 500 personas y equipo audiovisual completo.",
     location: "Edificio de Eventos, acceso por puerta norte",
     category: "Eventos",
-    floor: "Planta baja",
+    floor: "Planta Baja",
     image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/10938bad-fce0-4a7f-944b-3ebb4233bbfd.png"
   },
   
@@ -55,9 +55,12 @@ const locations = [
     description: "Instalaciones deportivas cubiertas con canchas múltiples y equipo de entrenamiento.",
     location: "Extremo oeste del campus",
     category: "Deportes",
-    floor: "Planta baja",
+    floor: "Planta Baja",
     image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/447e2955-e0e7-4060-a718-b041a3708ea5.png"
   }
+
+
+
 ];
 
 // DOM elements
@@ -125,8 +128,6 @@ function toggleLocationDetails(location, clickedCard) {
   detailCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
   // For desktop, still show in the fixed panel
   if (window.innerWidth >= 1024) { // Tailwind's 'lg' breakpoint
-    // This part needs to be adjusted if you want a fixed panel for details
-    // For now, we'll just hide it as it's not fully implemented in the provided context
     locationDetailsPanel.classList.add('hidden'); 
   } else {
     locationDetailsPanel.classList.add('hidden'); // Hide the fixed panel on mobile
@@ -142,10 +143,6 @@ function searchLocations() {
     if (activeDetailCard) {
       activeDetailCard.remove();
       activeDetailCard = null;
-    }
-    // Show fixed panel on desktop if search is cleared
-    if (window.innerWidth >= 1024) {
-        // locationDetailsPanel.classList.remove('hidden'); // Re-enable if fixed panel is used
     }
     return;
   }
@@ -229,8 +226,8 @@ function populateFloorDropdown() {
 
   const sortedFloors = Array.from(floors).sort((a, b) => {
     // Simple sorting for common floor names
-    if (a === "Planta baja") return -1;
-    if (b === "Planta baja") return 1;
+    if (a === "Planta Baja") return -1;
+    if (b === "Planta Baja") return 1;
     return a.localeCompare(b);
   });
 
