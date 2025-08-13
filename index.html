@@ -10,12 +10,25 @@
 </head>
 
 <body class="bg-gray-350">
-  <div class="max-w-6xl mx-auto px-4 py-8">
-    <!-- Header -->
-    <header class="text-center mb-12">
-      <h1 class="text-4xl font-bold text-indigo-900 mb-3">Guía de Ubicaciones</h1>
-      <p class="text-lg text-black-600">Encuentra fácilmente los lugares importantes de tu universidad</p>
-    </header>
+  <header class="bg-gray-400 text-indigo-900 py-6 shadow-md mb-12">
+  <div class="max-w-6xl mx-auto px-4 flex items-center">
+    
+    <!-- Logo -->
+    <div class="rounded-full overflow-hidden w-20 h-20 mr-4 flex-shrink-0">
+      <img src="images/logo.jpg" alt="Logo" class="w-full h-full object-cover">
+    </div>
+
+    <!-- Texto -->
+    <div class="absolute left-1/2 transform -translate-x-1/2 text-center">
+      <h1 class="text-4xl font-bold mb-3">Guía de Ubicaciones</h1>
+      <p class="text-lg text-white">Encuentra fácilmente los lugares importantes de tu universidad</p>
+    </div>
+
+  </div>
+</header>
+
+  
+    <div class="max-w-6xl mx-auto px-4 py-8">
 
     <!-- Search Bar -->
     <div class="mb-10 max-w-2xl mx-auto">
@@ -54,8 +67,6 @@
             data-filter="Laboratorios">Laboratorios</button>
           <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition"
             data-filter="Servicios">Servicios</button>
-          <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition"
-            data-filter="Eventos">Eventos</button>
           <div class="relative inline-block text-left">
             <button id="floorDropdownBtn"
               class="bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition inline-flex items-center">

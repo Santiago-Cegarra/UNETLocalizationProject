@@ -16,7 +16,7 @@ const locations = [
     location: "Piso 2, sector A (11-C-4).",
     category: "Administrativo",
     floor: "Piso 2",
-    image: "images/decanato.test.jpg"
+    image: "images/Piso 2/11c4decanatoDocencialabproyectos.jpg"
   },
   {
     id: 2,
@@ -61,7 +61,7 @@ const locations = [
     location: "Piso 2, zona central entre sectores A y B.",
     category: "Servicios",
     floor: "Piso 2",
-    image: "images/cafetin.jpg"
+    image: "images/Piso 2/cafetin.jpg"
   },
   {
     id: 7,
@@ -180,6 +180,8 @@ const locations = [
     floor: "Piso 3",
     image: "images/12d2.jpg"
   },
+  
+  
   // === Adiciones completas por piso ===
   // --- PLANTA BAJA ---
   {
@@ -355,7 +357,7 @@ const locations = [
     location: "Piso 1, sector A (11-B-9).",
     category: "Laboratorios",
     floor: "Piso 1",
-    image: "images/11b9-electrotecnia2.jpg"
+    image: "images/Piso 1/11b9labElectronica2.jpg"
   },
   {
     id: 40,
@@ -364,7 +366,7 @@ const locations = [
     location: "Piso 1, sector A (11-B-12).",
     category: "Laboratorios",
     floor: "Piso 1",
-    image: "images/11b12-lab126.jpg"
+    image: "images/Piso 1/11b12lab126.jpg"
   },
   {
     id: 41,
@@ -373,7 +375,7 @@ const locations = [
     location: "Piso 1, sector A (11-B-15).",
     category: "Académico",
     floor: "Piso 1",
-    image: "images/11b15.jpg"
+    image: "images/Piso 1/11b15.jpg"
   },
   {
     id: 42,
@@ -382,7 +384,7 @@ const locations = [
     location: "Piso 1, sector A (11-B-16).",
     category: "Laboratorios",
     floor: "Piso 1",
-    image: "images/11b16-lab127.jpg"
+    image: "images/Piso 1/11b16lab127.jpg"
   },
   {
     id: 43,
@@ -391,7 +393,7 @@ const locations = [
     location: "Piso 1, sector A (11-B-11).",
     category: "Laboratorios",
     floor: "Piso 1",
-    image: "images/11b11-lab133.jpg"
+    image: "images/Piso 1/11b11lab133.jpg"
   },
   {
     id: 44,
@@ -400,7 +402,7 @@ const locations = [
     location: "Piso 1, sector A (11-B-10).",
     category: "Laboratorios",
     floor: "Piso 1",
-    image: "images/11b10-lab125.jpg"
+    image: "images/Piso 1/11b10lab125.jpg"
   },
   {
     id: 45,
@@ -409,7 +411,7 @@ const locations = [
     location: "Piso 1, sector A (11-B-17).",
     category: "Académico",
     floor: "Piso 1",
-    image: "images/11b17-profei.jpg"
+    image: "images/Piso 1/profei.jpg"
   },
   {
     id: 46,
@@ -418,7 +420,7 @@ const locations = [
     location: "Piso 1, sector A (11-B-6).",
     category: "Laboratorios",
     floor: "Piso 1",
-    image: "images/11b6-electrotecnia1.jpg"
+    image: "images/Piso 1/11b6lab063Electrotecnia1.jpg"
   },
   {
     id: 47,
@@ -427,7 +429,7 @@ const locations = [
     location: "Piso 1, sector A (11-B-4).",
     category: "Servicios",
     floor: "Piso 1",
-    image: "images/11b4-salaTecnicos.jpg"
+    image: "images/Piso 1/11b4saladeTecnicos.jpg"
   },
   {
     id: 48,
@@ -436,7 +438,7 @@ const locations = [
     location: "Piso 1, sector A (11-B-3).",
     category: "Servicios",
     floor: "Piso 1",
-    image: "images/11b3-banoDamas.jpg"
+    image: "images/Piso 1/11b3bathW.jpg"
   },
   {
     id: 49,
@@ -445,7 +447,7 @@ const locations = [
     location: "Piso 1, sector A (11-B-2).",
     category: "Servicios",
     floor: "Piso 1",
-    image: "images/11b2-cuartoLimpieza.jpg"
+    image: "images/Piso 1/11b2salaLimpieza.jpg"
   },
   {
     id: 50,
@@ -454,7 +456,7 @@ const locations = [
     location: "Piso 1, sector A (11-B-1).",
     category: "Servicios",
     floor: "Piso 1",
-    image: "images/11b1-banoHombres.jpg"
+    image: "images/Piso 1/11b1bathMen.jpg"
   },
   {
     id: 51,
@@ -463,7 +465,7 @@ const locations = [
     location: "Piso 1, sector A (11-B-7).",
     category: "Académico",
     floor: "Piso 1",
-    image: "images/11b7.jpg"
+    image: "images/Piso 1/11b7.jpg"
   },
   {
     id: 52,
@@ -472,7 +474,7 @@ const locations = [
     location: "Piso 1, sector A (11-B-8).",
     category: "Laboratorios",
     floor: "Piso 1",
-    image: "images/11b8-lab082.jpg"
+    image: "images/Piso 1/11b8lab082.jpg"
   },
 
   // --- PISO 1 (sector B) ---
@@ -483,7 +485,7 @@ const locations = [
     location: "Piso 1, sector B (12-B-1).",
     category: "Laboratorios",
     floor: "Piso 1",
-    image: "images/12b1-arquitectura.jpg"
+    image: "images/Piso 1/lab12b1Arquitectura.jpg"
   },
   {
     id: 54,
@@ -492,7 +494,7 @@ const locations = [
     location: "Piso 1, sector B (12-B-15).",
     category: "Académico",
     floor: "Piso 1",
-    image: "images/12b15-aula114-p1.jpg"
+    image: "images/Piso 1/12b3Taller.jpg"
   },
   {
     id: 55,
@@ -501,7 +503,7 @@ const locations = [
     location: "Piso 1, sector B (12-B-11).",
     category: "Académico",
     floor: "Piso 1",
-    image: "images/12b11-salonJapones.jpg"
+    image: "images/Piso 1/12b11Salonjapones.jpg"
   },
   {
     id: 56,
@@ -510,7 +512,7 @@ const locations = [
     location: "Piso 1, sector B (12-B-16).",
     category: "Académico",
     floor: "Piso 1",
-    image: "images/12b16-aula114-p2.jpg"
+    image: "images/Piso 1/12b16Aula114.jpg"
   },
   {
     id: 57,
@@ -519,7 +521,7 @@ const locations = [
     location: "Piso 1, sector B (12-B-17).",
     category: "Laboratorios",
     floor: "Piso 1",
-    image: "images/12b17-i+d-informatica.jpg"
+    image: "images/Piso 1/12b7LabInvestigacionInf.jpg"
   },
   {
     id: 58,
@@ -528,7 +530,7 @@ const locations = [
     location: "Piso 1, sector B (12-B-10).",
     category: "Académico",
     floor: "Piso 1",
-    image: "images/12b10.jpg"
+    image: "images/Piso 1/12b10.jpg"
   },
   {
     id: 59,
@@ -537,7 +539,7 @@ const locations = [
     location: "Piso 1, sector B (12-B-9).",
     category: "Académico",
     floor: "Piso 1",
-    image: "images/12b9-disenoMecanico.jpg"
+    image: "images/Piso 1/12b9DisenoMecanico.jpg"
   },
   {
     id: 60,
@@ -546,7 +548,7 @@ const locations = [
     location: "Piso 1, sector B (12-B-8).",
     category: "Servicios",
     floor: "Piso 1",
-    image: "images/12b8-banoDamas.jpg"
+    image: "images/Piso 1/12b8BathW.jpg"
   },
   {
     id: 61,
@@ -555,7 +557,7 @@ const locations = [
     location: "Piso 1, sector B (12-B-7).",
     category: "Servicios",
     floor: "Piso 1",
-    image: "images/12b7-cuartoLimpieza.jpg"
+    image: "images/Piso 1/12b7.jpg"
   },
   {
     id: 62,
@@ -564,7 +566,7 @@ const locations = [
     location: "Piso 1, sector B (12-B-6).",
     category: "Servicios",
     floor: "Piso 1",
-    image: "images/12b6-banoHombres.jpg"
+    image: "images/Piso 1/12b6BathMen.jpg"
   },
   {
     id: 63,
@@ -573,7 +575,7 @@ const locations = [
     location: "Piso 1, sector B (12-B-3).",
     category: "Académico",
     floor: "Piso 1",
-    image: "images/12b3-taller.jpg"
+    image: "images/Piso 1/12b3.jpg"
   },
   {
     id: 64,
@@ -582,7 +584,7 @@ const locations = [
     location: "Piso 1, sector B (12-B-2).",
     category: "Servicios",
     floor: "Piso 1",
-    image: "images/12b2-conserjeria.jpg"
+    image: "images/Piso 1/12B2Conserjeria.jpg"
   },
 
   // --- PISO 2 (sector A) ---
@@ -594,7 +596,7 @@ const locations = [
     location: "Piso 2, sector A (11-C-6).",
     category: "Académico",
     floor: "Piso 2",
-    image: "images/11c6-16C.jpg"
+    image: "images/Piso 2/11c6Aula16C.jpg"
   },
   {
     id: 66,
@@ -603,7 +605,7 @@ const locations = [
     location: "Piso 2, sector A (11-C-3).",
     category: "Servicios",
     floor: "Piso 2",
-    image: "images/11c3-banoDamas.jpg"
+    image: "images/Piso 2/11c3.jpg"
   },
   {
     id: 67,
@@ -612,7 +614,7 @@ const locations = [
     location: "Piso 2, sector A (11-C-2).",
     category: "Servicios",
     floor: "Piso 2",
-    image: "images/11c2-cuartoLimpieza.jpg"
+    image: "images/Piso 2/11c2.jpg"
   },
   {
     id: 68,
@@ -621,7 +623,7 @@ const locations = [
     location: "Piso 2, sector A (11-C-1).",
     category: "Servicios",
     floor: "Piso 2",
-    image: "images/11c1-banoHombres.jpg"
+    image: "images/Piso 2/11c1Bathmen.jpg"
   },
   {
     id: 69,
@@ -630,7 +632,7 @@ const locations = [
     location: "Piso 2, sector A (11-C-7).",
     category: "Académico",
     floor: "Piso 2",
-    image: "images/11c7-15C.jpg"
+    image: "images/Piso 2/11c7Aula015C.jpg"
   },
   {
     id: 70,
@@ -639,7 +641,7 @@ const locations = [
     location: "Piso 2, sector A (11-C-17).",
     category: "Laboratorios",
     floor: "Piso 2",
-    image: "images/11c17-rf-microondas.jpg"
+    image: "images/Piso 2/lab11c17RFmicroondas.jpg"
   },
   {
     id: 71,
@@ -648,7 +650,7 @@ const locations = [
     location: "Piso 2, sector A (11-C-16).",
     category: "Laboratorios",
     floor: "Piso 2",
-    image: "images/11c16-sistemasDigitales.jpg"
+    image: "images/Piso 2/lab11c16Sistemasdigitales.jpg"
   },
   {
     id: 72,
@@ -657,7 +659,7 @@ const locations = [
     location: "Piso 2, sector A (11-C-15).",
     category: "Laboratorios",
     floor: "Piso 2",
-    image: "images/11c15-microprocesadores.jpg"
+    image: "images/Piso 2/lab11c15Microprocesadores.jpg"
   },
   {
     id: 73,
@@ -666,7 +668,7 @@ const locations = [
     location: "Piso 2, sector A (11-C-14).",
     category: "Laboratorios",
     floor: "Piso 2",
-    image: "images/11c14-lab131.jpg"
+    image: "images/Piso 2/lab11c14-131.jpg"
   },
   {
     id: 74,
@@ -675,7 +677,7 @@ const locations = [
     location: "Piso 2, sector A (11-C-12).",
     category: "Laboratorios",
     floor: "Piso 2",
-    image: "images/11c12-circuitosMediciones.jpg"
+    image: "images/Piso 2/lab066Circuitosmediciones.jpg"
   },
   {
     id: 75,
@@ -684,7 +686,7 @@ const locations = [
     location: "Piso 2, sector A (11-C-11).",
     category: "Servicios",
     floor: "Piso 2",
-    image: "images/11c11-mantenimiento.jpg"
+    image: "images/Piso 2/11c11Mantenimiento.jpg"
   },
   {
     id: 76,
@@ -693,7 +695,7 @@ const locations = [
     location: "Piso 2, sector A (11-C-10).",
     category: "Laboratorios",
     floor: "Piso 2",
-    image: "images/11c10-lab065.jpg"
+    image: "images/Piso 2/lab11c10-065.jpg"
   },
   {
     id: 77,
@@ -702,7 +704,7 @@ const locations = [
     location: "Piso 2, sector A (11-C-9).",
     category: "Laboratorios",
     floor: "Piso 2",
-    image: "images/11c9-lab132-p1.jpg"
+    image: "images/Piso 2/lab11c9-132.jpg"
   },
   {
     id: 78,
@@ -711,7 +713,7 @@ const locations = [
     location: "Piso 2, sector A (11-C-8).",
     category: "Laboratorios",
     floor: "Piso 2",
-    image: "images/11c8-lab132-p2.jpg"
+    image: "images/Piso 2/lab11c8-132.jpg"
   },
 
   // --- PISO 2 (sector B) ---
@@ -723,7 +725,7 @@ const locations = [
     location: "Piso 2, sector B (12-C-1).",
     category: "Laboratorios",
     floor: "Piso 2",
-    image: "images/12c1-microbiologicas.jpg"
+    image: "images/Piso 2/lab12c1InvestigaMicrobio.jpg"
   },
   {
     id: 80,
@@ -732,7 +734,7 @@ const locations = [
     location: "Piso 2, sector B (12-C-2).",
     category: "Laboratorios",
     floor: "Piso 2",
-    image: "images/12c2-indLeche-p1.jpg"
+    image: "images/Piso 2/12c2Puerta1.jpg"
   },
   {
     id: 81,
@@ -741,7 +743,7 @@ const locations = [
     location: "Piso 2, sector B (12-C-3).",
     category: "Laboratorios",
     floor: "Piso 2",
-    image: "images/12c3-indLeche-p2.jpg"
+    image: "images/Piso 2/lab12c3Industriasleche.jpg"
   },
   {
     id: 82,
@@ -750,7 +752,7 @@ const locations = [
     location: "Piso 2, sector B (12-C-4).",
     category: "Laboratorios",
     floor: "Piso 2",
-    image: "images/12c4-entomologia.jpg"
+    image: "images/Piso 2/lab12c4Entomologia.jpg"
   },
   {
     id: 83,
@@ -759,7 +761,7 @@ const locations = [
     location: "Piso 2, sector B (12-C-5).",
     category: "Laboratorios",
     floor: "Piso 2",
-    image: "images/12c5-termofluido.jpg"
+    image: "images/Piso 2/lab12c5Termofluido.jpg"
   },
   {
     id: 84,
@@ -768,7 +770,7 @@ const locations = [
     location: "Piso 2, sector B (12-C-7).",
     category: "Laboratorios",
     floor: "Piso 2",
-    image: "images/12c7-genetica-p2.jpg"
+    image: "images/Piso 2/12c7Puerta2.jpg"
   },
   {
     id: 85,
@@ -777,16 +779,7 @@ const locations = [
     location: "Piso 2, sector B (12-C-8).",
     category: "Laboratorios",
     floor: "Piso 2",
-    image: "images/12c8-genetica-p1.jpg"
-  },
-  {
-    id: 86,
-    name: "12-C-9 Nutrición Animal",
-    description: "Laboratorio de nutrición animal.",
-    location: "Piso 2, sector B (12-C-9).",
-    category: "Laboratorios",
-    floor: "Piso 2",
-    image: "images/12c9-nutricionAnimal.jpg"
+    image: "images/Piso 2/lab12c9Genetica.jpg"
   },
   {
     id: 87,
@@ -795,7 +788,7 @@ const locations = [
     location: "Piso 2, sector B (12-C-10).",
     category: "Laboratorios",
     floor: "Piso 2",
-    image: "images/12c10-instrumentacionBiologica.jpg"
+    image: "images/Piso 2/lab12c10InstrumentacionBio.jpg"
   },
   {
     id: 88,
@@ -804,7 +797,7 @@ const locations = [
     location: "Piso 2, sector B (12-C-11).",
     category: "Académico",
     floor: "Piso 2",
-    image: "images/12c11-5C-p1.jpg"
+    image: "images/Piso 2/12c11Aula05C.jpg"
   },
   {
     id: 89,
@@ -813,7 +806,7 @@ const locations = [
     location: "Piso 2, sector B (12-C-12).",
     category: "Académico",
     floor: "Piso 2",
-    image: "images/12c12-5C-p2.jpg"
+    image: "images/Piso 2/12c12Puerta2.jpg"
   },
   {
     id: 90,
@@ -822,7 +815,7 @@ const locations = [
     location: "Piso 2, sector B (12-C-13).",
     category: "Académico",
     floor: "Piso 2",
-    image: "images/12c13.jpg"
+    image: "images/Piso 2/12c13.jpg"
   },
   {
     id: 91,
@@ -831,7 +824,7 @@ const locations = [
     location: "Piso 2, sector B (12-C-24).",
     category: "Laboratorios",
     floor: "Piso 2",
-    image: "images/12c24-investigacionesGeneticas.jpg"
+    image: "images/Piso 2/lab12c24investiGeneticas.jpg"
   },
   {
     id: 92,
@@ -840,7 +833,7 @@ const locations = [
     location: "Piso 2, sector B (12-C-23).",
     category: "Laboratorios",
     floor: "Piso 2",
-    image: "images/12c23-bioquimica-p1.jpg"
+    image: "images/Piso 2/12c23Puerta1.jpg"
   },
   {
     id: 93,
@@ -849,7 +842,7 @@ const locations = [
     location: "Piso 2, sector B (12-C-22).",
     category: "Laboratorios",
     floor: "Piso 2",
-    image: "images/12c22-bioquimica-p2.jpg"
+    image: "images/Piso 2/lab12c22Bioquimica083.jpg"
   },
   {
     id: 94,
@@ -858,25 +851,16 @@ const locations = [
     location: "Piso 2, sector B (12-C-20).",
     category: "Académico",
     floor: "Piso 2",
-    image: "images/12c20-07C.jpg"
-  },
-  {
-    id: 95,
-    name: "12-C-18 Lab. 119 Ing. de Métodos (Puerta 1)",
-    description: "Laboratorio 119 de ingeniería de métodos — acceso 1.",
-    location: "Piso 2, sector B (12-C-18).",
-    category: "Laboratorios",
-    floor: "Piso 2",
-    image: "images/12c18-ingMetodos-p1.jpg"
+    image: "images/Piso 2/12c20Aula07C.jpg"
   },
   {
     id: 96,
-    name: "12-C-19 Lab. 119 Ing. de Métodos (Puerta 2)",
+    name: "12-C-19 Lab. 119 Ing. de Métodos (Puerta 1)",
     description: "Laboratorio 119 de ingeniería de métodos — acceso 2.",
     location: "Piso 2, sector B (12-C-19).",
     category: "Laboratorios",
     floor: "Piso 2",
-    image: "images/12c19-ingMetodos-p2.jpg"
+    image: "images/Piso 2/lab12c19Ingmetodos.jpg"
   },
   {
     id: 97,
@@ -885,7 +869,7 @@ const locations = [
     location: "Piso 2, sector B (12-C-17).",
     category: "Académico",
     floor: "Piso 2",
-    image: "images/12c17-06C.jpg"
+    image: "images/Piso 2/12c17Aula06C.jpg"
   },
   {
     id: 98,
@@ -894,7 +878,7 @@ const locations = [
     location: "Piso 2, sector B (12-C-16).",
     category: "Servicios",
     floor: "Piso 2",
-    image: "images/12c16-banoDamas.jpg"
+    image: "images/Piso 2/12c16.jpg"
   },
   {
     id: 99,
@@ -903,7 +887,7 @@ const locations = [
     location: "Piso 2, sector B (12-C-15).",
     category: "Servicios",
     floor: "Piso 2",
-    image: "images/12c15-cuartoLimpieza.jpg"
+    image: "images/Piso 2/12c15mantenimiento.jpg"
   },
   {
     id: 100,
@@ -912,7 +896,7 @@ const locations = [
     location: "Piso 2, sector B (12-C-14).",
     category: "Servicios",
     floor: "Piso 2",
-    image: "images/12c14-banoHombres.jpg"
+    image: "images/Piso 2/12c14Bathmen.jpg"
   },
 
   // --- PISO 3 (sector B) — adiciones que faltaban ---
