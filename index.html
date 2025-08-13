@@ -9,11 +9,11 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="bg-gray-350">
+<body class="bg-gray-100">
   <!-- Header -->
   <header class="bg-gray-400 text-indigo-900 py-6 shadow-md mb-12">
     <div class="max-w-6xl mx-auto px-4 flex flex-col lg:flex-row items-center text-center lg:text-left">
-      
+
       <!-- Logo -->
       <div class="rounded-full overflow-hidden w-20 h-20 mr-0 lg:mr-4 mb-4 lg:mb-0 flex-shrink-0">
         <img src="images/logo.jpg" alt="Logo" class="w-full h-full object-cover">
@@ -50,25 +50,41 @@
       <!-- Lista de ubicaciones -->
       <div class="w-full max-w-3xl">
         <div
-          class="bg-gradient-to-b from-white to-gray-50 flex flex-col items-center m-2 sm:m-5 gap-2 p-4 sm:p-6 rounded-xl shadow-md border border-gray-200">
-          <h2 class="text-xl sm:text-2xl font-semibold text-gray-700 mb-3">Ubicaciones comunes</h2>
-          <p class="text-sm sm:text-lg text-gray-500 text-center">
+          class="relative flex flex-col items-center m-2 sm:m-5 gap-2 p-4 sm:p-6 rounded-xl shadow-md border border-gray-200 overflow-hidden">
+
+          <!-- Fondo con patrón sutil -->
+          <div class="absolute inset-0 bg-cover bg-center"
+            style="background-image: url('images/fondobg.avif'); filter: brightness(0.85);">
+          </div>
+
+          <!-- Capa de suavizado -->
+          <div class="absolute inset-0 bg-white bg-opacity-70"></div>
+
+          <!-- Contenido sobre capa superior -->
+          <h2 class="relative z-10 text-xl sm:text-2xl font-semibold text-gray-700 mb-3">Ubicaciones comunes del Edificio C</h2>
+          <p class="relative z-10 text-sm sm:text-lg text-gray-800 text-center">
             Selecciona una ubicación <br>
-            Sus detalles aparecerán desplegados
+            Sus detalles aparecerán desplegados!
           </p>
         </div>
 
+
         <!-- Botones de filtro -->
         <div class="mb-6 flex flex-wrap gap-2 justify-center">
-          <button class="filter-btn bg-gray-200 text-gray-800 px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base hover:bg-gray-300 transition"
+          <button
+            class="filter-btn bg-gray-200 text-gray-800 px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base hover:bg-gray-300 transition"
             data-filter="all">Todas</button>
-          <button class="filter-btn bg-gray-200 text-gray-800 px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base hover:bg-gray-300 transition"
+          <button
+            class="filter-btn bg-gray-200 text-gray-800 px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base hover:bg-gray-300 transition"
             data-filter="Administrativo">Administrativo</button>
-          <button class="filter-btn bg-gray-200 text-gray-800 px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base hover:bg-gray-300 transition"
+          <button
+            class="filter-btn bg-gray-200 text-gray-800 px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base hover:bg-gray-300 transition"
             data-filter="Académico">Académico</button>
-          <button class="filter-btn bg-gray-200 text-gray-800 px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base hover:bg-gray-300 transition"
+          <button
+            class="filter-btn bg-gray-200 text-gray-800 px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base hover:bg-gray-300 transition"
             data-filter="Laboratorios">Laboratorios</button>
-          <button class="filter-btn bg-gray-200 text-gray-800 px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base hover:bg-gray-300 transition"
+          <button
+            class="filter-btn bg-gray-200 text-gray-800 px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base hover:bg-gray-300 transition"
             data-filter="Servicios">Servicios</button>
 
           <!-- Dropdown Pisos -->
@@ -92,11 +108,46 @@
 
         <!-- Contenedor de ubicaciones -->
         <div id="locations-container" class="space-y-4"></div>
-      </div>  
+      </div>
     </div>
   </div>
 
   <script src="script.js"></script>
+
+
+  <!-- Footer -->
+<footer class="bg-gray-800 text-white mt-12">
+  <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+    
+    <!-- Información principal -->
+    <div class="text-center sm:text-left">
+      <h3 class="text-lg font-semibold">Santiago Paul</h3>
+      <p class="text-sm text-gray-300">Desarrollador Web para la Guía Universitaria</p>
+    </div>
+    
+    <!-- Contacto -->
+    <div class="flex flex-col sm:flex-row items-center gap-2">
+      <a href="mailto:tuemail@example.com" class="text-sm hover:text-indigo-400 transition">
+        📧 santiago.cegarra@unet.edu.ve
+      </a>
+      <a href="tel:+123456789" class="text-sm hover:text-indigo-400 transition">
+        📱 +424 7761514
+      </a>
+    </div>
+  
+    <div class="flex gap-3">
+      <a href="https://facebook.com" target="_blank" class="hover:text-indigo-400 transition">🌐 Facebook</a>
+      <a href="https://instagram.com" target="_blank" class="hover:text-indigo-400 transition">📷 Instagram</a>
+      <a href="https://linkedin.com" target="_blank" class="hover:text-indigo-400 transition">💼 LinkedIn</a>
+    </div>
+  </div>
+  
+  <!-- Línea inferior -->
+  <div class="bg-gray-900 text-gray-400 text-center text-xs py-3">
+    © 2025 Santiago Paul y Miguel Urbina - Todos los derechos reservados.
+  </div>
+</footer>
+
 </body>
 
 </html>
