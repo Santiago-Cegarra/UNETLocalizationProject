@@ -25,7 +25,7 @@ const locations = [
     location: "Piso 3, sector B. Puerta principal (12-D-20).",
     category: "Académico",
     floor: "Piso 3",
-    image: "images/12d20sedeInf.jpg"
+    image: "images/Piso 3/Aula08CSedeInformatica1.jpg"
   },
   {
     id: 3,
@@ -52,7 +52,7 @@ const locations = [
     location: "Piso 3, sector A (11-D-1).",
     category: "Eventos",
     floor: "Piso 3",
-    image: "images/decanatoPostgrado.jpg"
+    image: "images/Piso 3/DecanatoPost.jpg"
   },
   {
     id: 6,
@@ -70,7 +70,7 @@ const locations = [
     location: "Piso 3, sector B (12-D-1).",
     category: "Servicios",
     floor: "Piso 3",
-    image: "images/conserjeria.jpg"
+    image: "images/Piso 3/12d1Conserjeria.jpg"
   },
   {
     id: 8,
@@ -79,7 +79,7 @@ const locations = [
     location: "Piso 3, sector B (12-D-17).",
     category: "Servicios",
     floor: "Piso 3",
-    image: "images/bathHombres12d17.jpg"
+    image: "images/Piso 3/12d17bathmen.jpg"
   },
   {
     id: 9,
@@ -88,7 +88,7 @@ const locations = [
     location: "Piso 3, sector B (12-D-19).",
     category: "Servicios",
     floor: "Piso 3",
-    image: "images/bathDamas12d19.jpg"
+    image: "images/Piso 3/12d19bathW.jpg"
   },
   {
     id: 10,
@@ -97,17 +97,18 @@ const locations = [
     location: "Piso 3, sector B (12-D-15).",
     category: "Laboratorios",
     floor: "Piso 3",
-    image: "images/lab12d15-Fitopatologia.jpg"
+    image: "images/Piso 3/12d15 .jpg"
   },
   {
     id: 11,
     name: "Biotecnología (Biofertilizantes) (12-D-12)",
     description: "Laboratorio de biotecnología orientado a biofertilizantes.",
-    location: "Piso 3, sector B (12-D-12).",
+    location: "Piso 3, ir al sector B (12-D-12).",
     category: "Laboratorios",
     floor: "Piso 3",
-    image: "images/lab12d12Biotecnologia.jpg"
+    image: "images/Piso 3/12d12lab.jpg"
   },
+  
   {
     id: 12,
     name: "Laboratorio de Microbiología (12-D-11)",
@@ -115,7 +116,7 @@ const locations = [
     location: "Piso 3, sector B (12-D-11).",
     category: "Laboratorios",
     floor: "Piso 3",
-    image: "images/lab12d11Microbologia.jpg"
+    image: "images/Piso 3/12d11labmicro.jpg"
   },
   {
     id: 13,
@@ -124,7 +125,7 @@ const locations = [
     location: "Piso 3, sector B (12-D-7).",
     category: "Laboratorios",
     floor: "Piso 3",
-    image: "images/lab12d7-labFertilizantes.jpg"
+    image: "images/Piso 3/12d7fertilizantes.jpg"
   },
   {
     id: 14,
@@ -133,16 +134,16 @@ const locations = [
     location: "Piso 3, sector B (12-D-6).",
     category: "Laboratorios",
     floor: "Piso 3",
-    image: "images/lab12d6-cienciasIng.jpg"
+    image: "images/Piso 3/12d6.jpg"
   },
   {
     id: 15,
     name: "Biotecnología (Cultivo de Tejidos) (12-D-5)",
-    description: "Laboratorio de biotecnología, cultivo de tejidos.",
+    description: "Laboratorio de biotecnología, Area de cultivo de tejidos.",
     location: "Piso 3, sector B (12-D-5).",
     category: "Laboratorios",
     floor: "Piso 3",
-    image: "images/lab12d5-biotecnologia.jpg"
+    image: "images/Piso 3/12d5lab.jpg"
   },
   {
     id: 16,
@@ -151,7 +152,7 @@ const locations = [
     location: "Piso 3, sector B (12-D-3).",
     category: "Laboratorios",
     floor: "Piso 3",
-    image: "images/lab12d3-FisiologiaVegetal.jpg"
+    image: "images/Piso 3/12d3.jpg"
   },
   {
     id: 17,
@@ -160,7 +161,7 @@ const locations = [
     location: "Piso 3, sector B (12-D-28).",
     category: "Académico",
     floor: "Piso 3",
-    image: "images/12d28-09C.jpg"
+    image: "images/Piso 3/12d28Aula09C.jpg"
   },
   {
     id: 18,
@@ -169,7 +170,7 @@ const locations = [
     location: "Piso 3, sector B (12-D-21).",
     category: "Académico",
     floor: "Piso 3",
-    image: "images/12d21SedeInformatica2.jpg"
+    image: "images/Piso 3/12d21Sede2.jpg"
   },
   {
     id: 19,
@@ -178,7 +179,7 @@ const locations = [
     location: "Piso 3, sector B (12-D-2).",
     category: "Académico",
     floor: "Piso 3",
-    image: "images/12d2.jpg"
+    image: "images/Piso 3/12d2.jpg"
   },
   
   
@@ -907,7 +908,7 @@ const locations = [
     location: "Piso 3, sector B (12-D-26).",
     category: "Académico",
     floor: "Piso 3",
-    image: "images/12d26.jpg"
+    image: "images/Piso 3/12d26.jpg"
   },
   {
     id: 102,
@@ -916,7 +917,7 @@ const locations = [
     location: "Piso 3, sector B (12-D-27).",
     category: "Académico",
     floor: "Piso 3",
-    image: "images/12d27.jpg"
+    image: "images/Piso 3/12d27.jpg"
   },
   {
     id: 103,
@@ -925,7 +926,7 @@ const locations = [
     location: "Piso 3, sector B (12-D-22).",
     category: "Académico",
     floor: "Piso 3",
-    image: "images/12d22.jpg"
+    image: "images/Piso 3/12d22.jpg"
   },
   {
     id: 104,
@@ -934,7 +935,7 @@ const locations = [
     location: "Piso 3, sector B (12-D-23).",
     category: "Laboratorios",
     floor: "Piso 3",
-    image: "images/12d23-botanicaAgricola.jpg"
+    image: "images/Piso 3/12d23.jpg"
   },
   {
     id: 105,
@@ -943,7 +944,7 @@ const locations = [
     location: "Piso 3, sector B (12-D-8).",
     category: "Académico",
     floor: "Piso 3",
-    image: "images/12d8.jpg"
+    image: "images/Piso 3/12d8.jpg"
   },
   {
     id: 106,
@@ -952,7 +953,7 @@ const locations = [
     location: "Piso 3, sector B (12-D-10).",
     category: "Laboratorios",
     floor: "Piso 3",
-    image: "images/12d10MicrobiologiaGen.jpg"
+    image: "images/Piso 3/12d10microbio.jpg"
   },
   {
     id: 107,
@@ -961,7 +962,7 @@ const locations = [
     location: "Piso 3, sector B (12-D-4).",
     category: "Académico",
     floor: "Piso 3",
-    image: "images/12d4.jpg"
+    image: "images/Piso 3/12d4.jpg"
   },
   {
     id: 108,
@@ -970,7 +971,7 @@ const locations = [
     location: "Piso 3, sector B (12-D-16).",
     category: "Académico",
     floor: "Piso 3",
-    image: "images/12d16.jpg"
+    image: "images/Piso 3/12d16.jpg"
   },
   {
     id: 109,
@@ -979,7 +980,7 @@ const locations = [
     location: "Piso 3, sector B (12-D-13).",
     category: "Laboratorios",
     floor: "Piso 3",
-    image: "images/12d13-fitopatologia-p2.jpg"
+    image: "images/Piso 3/12d13fitopologia.jpg"
   }
 ];
 
