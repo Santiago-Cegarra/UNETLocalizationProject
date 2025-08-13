@@ -1,4 +1,3 @@
-
 .map-marker {
   width: 20px;
   height: 20px;
@@ -23,13 +22,21 @@
   background-color: #f3f4f6; /* gris claro de fondo */
 }
 
+/* Tarjeta de detalles */
 .location-detail-card {
   transition: all 0.3s ease-in-out;
   margin-top: 1rem; 
 }
 
+.location-detail-card img {
+  width: 100%;
+  height: auto;
+  max-height: 400px; /* Evita imágenes enormes en móvil */
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
 
-@media (max-width: 1023px) { /* Menos que el breakpoint 'lg' de Tailwind */
+@media (max-width: 1023px) { /* Menos que 'lg' de Tailwind */
   #location-details {
     display: none; 
   }

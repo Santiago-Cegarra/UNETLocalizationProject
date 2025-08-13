@@ -10,31 +10,34 @@
 </head>
 
 <body class="bg-gray-350">
+  <!-- Header -->
   <header class="bg-gray-400 text-indigo-900 py-6 shadow-md mb-12">
-  <div class="max-w-6xl mx-auto px-4 flex items-center">
-    
-    <!-- Logo -->
-    <div class="rounded-full overflow-hidden w-20 h-20 mr-4 flex-shrink-0">
-      <img src="images/logo.jpg" alt="Logo" class="w-full h-full object-cover">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col lg:flex-row items-center text-center lg:text-left">
+      
+      <!-- Logo -->
+      <div class="rounded-full overflow-hidden w-20 h-20 mr-0 lg:mr-4 mb-4 lg:mb-0 flex-shrink-0">
+        <img src="images/logo.jpg" alt="Logo" class="w-full h-full object-cover">
+      </div>
+
+      <!-- Texto -->
+      <div>
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3">Guía de Ubicaciones</h1>
+        <p class="text-base sm:text-lg text-white">
+          Encuentra fácilmente los lugares importantes de tu universidad
+        </p>
+      </div>
+
     </div>
+  </header>
 
-    <!-- Texto -->
-    <div class="absolute left-1/2 transform -translate-x-1/2 text-center">
-      <h1 class="text-4xl font-bold mb-3">Guía de Ubicaciones</h1>
-      <p class="text-lg text-white">Encuentra fácilmente los lugares importantes de tu universidad</p>
-    </div>
+  <!-- Contenido -->
+  <div class="w-full max-w-6xl mx-auto px-2 sm:px-4 py-8">
 
-  </div>
-</header>
-
-  
-    <div class="max-w-6xl mx-auto px-4 py-8">
-
-    <!-- Search Bar -->
+    <!-- Barra de búsqueda -->
     <div class="mb-10 max-w-2xl mx-auto">
       <div class="relative">
         <input type="text" id="searchInput" placeholder="Busca aulas, laboratorios, oficinas..."
-          class="w-full py-3 px-5 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent shadow-sm">
+          class="w-full py-3 px-5 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent shadow-sm text-sm sm:text-base">
         <button id="searchButton"
           class="absolute right-3 top-1/2 transform -translate-y-1/2 bg-indigo-600 text-white p-2 rounded-full hover:bg-indigo-700 transition">
           Buscar
@@ -42,34 +45,36 @@
       </div>
     </div>
 
-    <!-- Main Content -->
+    <!-- Contenido principal -->
     <div class="flex flex-col items-center gap-8">
-      <!-- Locations List -->
+      <!-- Lista de ubicaciones -->
       <div class="w-full max-w-3xl">
         <div
-          class="bg-gradient-to-b from-white to-gray-50 flex flex-col items-center m-5 gap-2 p-6 rounded-xl shadow-md border border-gray-200">
-          <h2 class="text-2xl font-semibold text-gray-700 mb-3">Ubicaciones comunes</h2>
-          <p class="text-lg text-gray-500 text-center">
+          class="bg-gradient-to-b from-white to-gray-50 flex flex-col items-center m-2 sm:m-5 gap-2 p-4 sm:p-6 rounded-xl shadow-md border border-gray-200">
+          <h2 class="text-xl sm:text-2xl font-semibold text-gray-700 mb-3">Ubicaciones comunes</h2>
+          <p class="text-sm sm:text-lg text-gray-500 text-center">
             Selecciona una ubicación <br>
             Sus detalles aparecerán desplegados
           </p>
         </div>
 
-        <!-- Filter Buttons Section -->
+        <!-- Botones de filtro -->
         <div class="mb-6 flex flex-wrap gap-2 justify-center">
-          <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition"
+          <button class="filter-btn bg-gray-200 text-gray-800 px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base hover:bg-gray-300 transition"
             data-filter="all">Todas</button>
-          <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition"
+          <button class="filter-btn bg-gray-200 text-gray-800 px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base hover:bg-gray-300 transition"
             data-filter="Administrativo">Administrativo</button>
-          <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition"
+          <button class="filter-btn bg-gray-200 text-gray-800 px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base hover:bg-gray-300 transition"
             data-filter="Académico">Académico</button>
-          <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition"
+          <button class="filter-btn bg-gray-200 text-gray-800 px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base hover:bg-gray-300 transition"
             data-filter="Laboratorios">Laboratorios</button>
-          <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition"
+          <button class="filter-btn bg-gray-200 text-gray-800 px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base hover:bg-gray-300 transition"
             data-filter="Servicios">Servicios</button>
+
+          <!-- Dropdown Pisos -->
           <div class="relative inline-block text-left">
             <button id="floorDropdownBtn"
-              class="bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition inline-flex items-center">
+              class="bg-gray-200 text-gray-800 px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base hover:bg-gray-300 transition inline-flex items-center">
               Pisos
               <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg">
@@ -79,12 +84,13 @@
             <div id="floorDropdownMenu"
               class="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden z-10">
               <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                <!-- Floor options will be populated by JavaScript -->
+                <!-- Opciones de piso (JS) -->
               </div>
             </div>
           </div>
         </div>
 
+        <!-- Contenedor de ubicaciones -->
         <div id="locations-container" class="space-y-4"></div>
       </div>  
     </div>
