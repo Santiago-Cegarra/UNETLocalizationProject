@@ -1,66 +1,1002 @@
+// UNET — Edificio C
+// Mapa de ubicaciones normalizado para tu app (JS)
+// Notas de normalización:
+// 1) Usamos los pisos: "Sótano", "Planta Baja", "Piso 1", "Piso 2", "Piso 3".
+//    Los sectores A/B se mantienen en el campo `location`.
+// 2) Categorías estandarizadas: "Administrativo", "Académico", "Laboratorios", "Servicios", "Eventos".
+// 3) Rutas de imágenes con prefijo "images/". Usa nombres reales de tus assets si difieren.
+// 4) Evitamos duplicados; donde hay dos puertas del mismo lugar se crean entradas separadas.
+
 const locations = [
+  // === Entradas originales (algunas ajustadas) ===
   {
     id: 1,
     name: "Decanato de Docencia",
-    description: "Oficinas administrativas principales de el edificio, Departamento de Ing Informatica.",
-    location: "Primer Pasillo de el Edificio, Viniendo por la entrada izquierda",
+    description: "Oficinas administrativas y coordinación de laboratorios y proyectos.",
+    location: "Piso 2, sector A (11-C-4).",
     category: "Administrativo",
-    floor: "Planta Baja",
+    floor: "Piso 2",
     image: "images/decanato.test.jpg"
   },
-  
   {
     id: 2,
-    name: "Biblioteca Central",
-    description: "Biblioteca principal con más de 50,000 volúmenes y áreas de estudio individual y grupal.",
-    location: "Edificio B, al norte del estacionamiento principal",
+    name: "Sede Informática (Puerta 1)",
+    description: "Sede principal para estudio individual y grupal de Informática.",
+    location: "Piso 3, sector B. Puerta principal (12-D-20).",
     category: "Académico",
-    floor: "3er piso",
-    image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d552676f-e7a4-4031-90d7-c45aa7ac48c0.png"
+    floor: "Piso 3",
+    image: "images/12d20sedeInf.jpg"
   },
-  
   {
     id: 3,
-    name: "Laboratorios de Computación Valerio Wong",
-    description: "Laboratorio equipado con mas de 10 salones con computadoras para clases de informática y programación.",
-    location: "Primer Laboratorio de el Edificio, Planta Baja",
+    name: "Laboratorios de Computación Valerio Wong (12-A-4)",
+    description: "Complejo de laboratorios con computadoras para clases de informática y programación.",
+    location: "Planta Baja, sector A (12-A-4).",
     category: "Laboratorios",
     floor: "Planta Baja",
-    image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f97ce7b3-4741-468a-ab46-400d0f962c8b.png"
+    image: "images/PlantaBaja/labValerioWong.jpg"
   },
-  
   {
     id: 4,
-    name: "Lobby Principal",
-    description: "Área de Estudio y zona de descanso principal del Edificio.",
-    location: "Entrada Principal, Girando por la Izquierda",
+    name: "Lobby Sótano",
+    description: "Área de estudio y zona de descanso del nivel sótano.",
+    location: "Bajando desde PB por las escaleras normales de la izquierda.",
     category: "Servicios",
-    floor: "Planta Baja",
-    image: "images/lobby.jpg"
+    floor: "Sótano",
+    image: "images/Sotano/lobbySotano.jpg"
   },
-  
   {
     id: 5,
-    name: "Auditorio Magno",
-    description: "Espacio para eventos académicos con capacidad para 500 personas y equipo audiovisual completo.",
-    location: "Edificio de Eventos, acceso por puerta norte",
+    name: "Decanato de Postgrado",
+    description: "Área administrativa y de reuniones de postgrado.",
+    location: "Piso 3, sector A (11-D-1).",
     category: "Eventos",
-    floor: "Planta Baja",
-    image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/10938bad-fce0-4a7f-944b-3ebb4233bbfd.png"
+    floor: "Piso 3",
+    image: "images/decanatoPostgrado.jpg"
   },
-  
   {
     id: 6,
-    name: "Gimnasio Universitario",
-    description: "Instalaciones deportivas cubiertas con canchas múltiples y equipo de entrenamiento.",
-    location: "Extremo oeste del campus",
-    category: "Deportes",
+    name: "Cafetín",
+    description: "Punto de compra de bebidas y comida para estudiantes.",
+    location: "Piso 2, zona central entre sectores A y B.",
+    category: "Servicios",
+    floor: "Piso 2",
+    image: "images/cafetin.jpg"
+  },
+  {
+    id: 7,
+    name: "Conserjería (12-D-1)",
+    description: "Equipo de conserjería; apoyo, seguridad y mantenimiento.",
+    location: "Piso 3, sector B (12-D-1).",
+    category: "Servicios",
+    floor: "Piso 3",
+    image: "images/conserjeria.jpg"
+  },
+  {
+    id: 8,
+    name: "Baños de Hombres (Piso 3)",
+    description: "Baño principal del piso 3 (hombres).",
+    location: "Piso 3, sector B (12-D-17).",
+    category: "Servicios",
+    floor: "Piso 3",
+    image: "images/bathHombres12d17.jpg"
+  },
+  {
+    id: 9,
+    name: "Baños de Mujeres (Piso 3)",
+    description: "Baño principal del piso 3 (mujeres).",
+    location: "Piso 3, sector B (12-D-19).",
+    category: "Servicios",
+    floor: "Piso 3",
+    image: "images/bathDamas12d19.jpg"
+  },
+  {
+    id: 10,
+    name: "Laboratorio de Fitopatología (12-D-15)",
+    description: "Laboratorio especializado en fitopatología.",
+    location: "Piso 3, sector B (12-D-15).",
+    category: "Laboratorios",
+    floor: "Piso 3",
+    image: "images/lab12d15-Fitopatologia.jpg"
+  },
+  {
+    id: 11,
+    name: "Biotecnología (Biofertilizantes) (12-D-12)",
+    description: "Laboratorio de biotecnología orientado a biofertilizantes.",
+    location: "Piso 3, sector B (12-D-12).",
+    category: "Laboratorios",
+    floor: "Piso 3",
+    image: "images/lab12d12Biotecnologia.jpg"
+  },
+  {
+    id: 12,
+    name: "Laboratorio de Microbiología (12-D-11)",
+    description: "Laboratorio para estudios de microbiología.",
+    location: "Piso 3, sector B (12-D-11).",
+    category: "Laboratorios",
+    floor: "Piso 3",
+    image: "images/lab12d11Microbologia.jpg"
+  },
+  {
+    id: 13,
+    name: "Laboratorio de Biofertilizantes (12-D-7)",
+    description: "Laboratorio centrado en biofertilizantes.",
+    location: "Piso 3, sector B (12-D-7).",
+    category: "Laboratorios",
+    floor: "Piso 3",
+    image: "images/lab12d7-labFertilizantes.jpg"
+  },
+  {
+    id: 14,
+    name: "Lab. Inv. en Cs. Básicas e Ingeniería (12-D-6)",
+    description: "Investigación en ciencias básicas e ingeniería.",
+    location: "Piso 3, sector B (12-D-6).",
+    category: "Laboratorios",
+    floor: "Piso 3",
+    image: "images/lab12d6-cienciasIng.jpg"
+  },
+  {
+    id: 15,
+    name: "Biotecnología (Cultivo de Tejidos) (12-D-5)",
+    description: "Laboratorio de biotecnología, cultivo de tejidos.",
+    location: "Piso 3, sector B (12-D-5).",
+    category: "Laboratorios",
+    floor: "Piso 3",
+    image: "images/lab12d5-biotecnologia.jpg"
+  },
+  {
+    id: 16,
+    name: "Laboratorio de Fisiología Vegetal (12-D-3)",
+    description: "Laboratorio de fisiología vegetal.",
+    location: "Piso 3, sector B (12-D-3).",
+    category: "Laboratorios",
+    floor: "Piso 3",
+    image: "images/lab12d3-FisiologiaVegetal.jpg"
+  },
+  {
+    id: 17,
+    name: "Salón 09C (12-D-28)",
+    description: "Aula académica para distintas asignaturas.",
+    location: "Piso 3, sector B (12-D-28).",
+    category: "Académico",
+    floor: "Piso 3",
+    image: "images/12d28-09C.jpg"
+  },
+  {
+    id: 18,
+    name: "Sede Informática (Puerta 2)",
+    description: "Ambiente de estudio y trabajo académico.",
+    location: "Piso 3, sector B (12-D-21).",
+    category: "Académico",
+    floor: "Piso 3",
+    image: "images/12d21SedeInformatica2.jpg"
+  },
+  {
+    id: 19,
+    name: "Salón 12-D-2",
+    description: "Aula académica para varias materias.",
+    location: "Piso 3, sector B (12-D-2).",
+    category: "Académico",
+    floor: "Piso 3",
+    image: "images/12d2.jpg"
+  },
+  // === Adiciones completas por piso ===
+  // --- PLANTA BAJA ---
+  {
+    id: 20,
+    name: "Lobby Planta Baja",
+    description: "Punto de atención y referencia al ingresar al edificio.",
+    location: "Entrada principal, áreas de recepción.",
+    category: "Servicios",
     floor: "Planta Baja",
-    image: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/447e2955-e0e7-4060-a718-b041a3708ea5.png"
+    image: "images/PlantaBaja/lobbyPB.jpg"
+  },
+  {
+    id: 21,
+    name: "12-A-9 Lab. Inv. Arq. - Ciudad y Territorio",
+    description: "Laboratorio de investigación arquitectónica (ciudad y territorio).",
+    location: "Planta Baja, sector A (12-A-9).",
+    category: "Laboratorios",
+    floor: "Planta Baja",
+    image: "images/PlantaBaja/12a9labArquitectonica.jpg"
+  },
+  {
+    id: 22,
+    name: "12-A-8 Baños de Damas (PB)",
+    description: "Baños de damas de planta baja.",
+    location: "Planta Baja, sector A (12-A-8).",
+    category: "Servicios",
+    floor: "Planta Baja",
+    image: "images/PlantaBaja/12A8bathW.jpg"
+  },
+  {
+    id: 23,
+    name: "12-A-7 Baños de Hombres (PB)",
+    description: "Baños de hombres de planta baja.",
+    location: "Planta Baja, sector A (12-A-7).",
+    category: "Servicios",
+    floor: "Planta Baja",
+    image: "images/PlantaBaja/12a7bathH.jpg"
+  },
+  {
+    id: 24,
+    name: "Sala de Exposiciones (12-A-10)",
+    description: "Sala de exposiciones del Decanato de Investigación.",
+    location: "Planta Baja, sector A (12-A-10).",
+    category: "Académico",
+    floor: "Planta Baja",
+    image: "images/PlantaBaja/salaExpoPB.jpg"
+  },
+  {
+    id: 25,
+    name: "12-A-11 Lab. Inv. Arq. - Ambiente y Ecotec.",
+    description: "Laboratorio de investigación arquitectónica (ambiente y ecotecnología).",
+    location: "Planta Baja, sector A (12-A-11).",
+    category: "Laboratorios",
+    floor: "Planta Baja",
+    image: "images/PlantaBaja/12a9labArquitectonica.jpg"
+  },
+  {
+    id: 26,
+    name: "Departamento de Informática (Puerta principal)",
+    description: "Acceso principal al Departamento de Informática.",
+    location: "Planta Baja, frente a los laboratorios de computación.",
+    category: "Académico",
+    floor: "Planta Baja",
+    image: "images/PlantaBaja/decanato.test.jpg"
+  },
+  {
+    id: 27,
+    name: "Departamento de Informática (Segunda puerta)",
+    description: "Acceso secundario al Departamento de Informática.",
+    location: "Planta Baja, adyacente al pasillo central.",
+    category: "Académico",
+    floor: "Planta Baja",
+    image: "images//PlantaBaja/depInf2.jpg"
+  },
+
+  // --- SÓTANO ---
+  {
+    id: 28,
+    name: "11-A-14 Transferencia de Calor (Puerta 1)",
+    description: "Laboratorio de transferencia de calor (puerta 1).",
+    location: "Sótano, sector A (11-A-14).",
+    category: "Laboratorios",
+    floor: "Sótano",
+    image: "images/Sotano/11a14LabTransfCalor.jpg"
+  },
+  {
+    id: 29,
+    name: "11-A-9 Laboratorio de Materiales",
+    description: "Laboratorio de materiales.",
+    location: "Sótano, sector A (11-A-9).",
+    category: "Laboratorios",
+    floor: "Sótano",
+    image: "images/Sotano/11a9LabMateriales.jpg"
+  },
+  {
+    id: 30,
+    name: "11-A-13 Transferencia de Calor (Puerta 2)",
+    description: "Laboratorio de transferencia de calor (puerta 2).",
+    location: "Sótano, sector A (11-A-13).",
+    category: "Laboratorios",
+    floor: "Sótano",
+    image: "images/Sotano/11a13.jpg"
+  },
+  {
+    id: 31,
+    name: "11-A-10 Laboratorio de Prototipos",
+    description: "Laboratorio de prototipos.",
+    location: "Sótano, sector A (11-A-10).",
+    category: "Laboratorios",
+    floor: "Sótano",
+    image: "images/Sotano/11a10labPrototipos.jpg"
+  },
+  {
+    id: 32,
+    name: "11-A-12 Sección Taller",
+    description: "Sección de talleres del sótano.",
+    location: "Sótano, sector A (11-A-12).",
+    category: "Académico",
+    floor: "Sótano",
+    image: "images/Sotano/11a12seccionTaller.jpg"
+  },
+  {
+    id: 33,
+    name: "11-A-16 Laboratorio de Matemática",
+    description: "Laboratorio de apoyo a Matemática.",
+    location: "Sótano, sector A (11-A-16).",
+    category: "Laboratorios",
+    floor: "Sótano",
+    image: "images/Sotano/11a16labMatematica.jpg"
+  },
+  {
+    id: 34,
+    name: "11-A-1 Sanitario de Hombres (Sótano)",
+    description: "Baños de hombres del sótano.",
+    location: "Sótano, sector A (11-A-1).",
+    category: "Servicios",
+    floor: "Sótano",
+    image: "images/Sotano/bathHombres.jpg"
+  },
+  {
+    id: 36,
+    name: "11-A-3 Sanitario de Damas (Sótano)",
+    description: "Baños de damas del sótano.",
+    location: "Sótano, sector A (11-A-3).",
+    category: "Servicios",
+    floor: "Sótano",
+    image: "images/Sotano/bathMujeres.jpg"
+  },
+  {
+    id: 37,
+    name: "11-A-4 Simulación en Termofluidos",
+    description: "Laboratorio de simulación de computación aplicada a termofluidos.",
+    location: "Sótano, sector A (11-A-4).",
+    category: "Laboratorios",
+    floor: "Sótano",
+    image: "images/Sotano/labSimulacionComputacionFluidos.jpg"
+  },
+  {
+    id: 38,
+    name: "11-A-5 Mecánica de Fluidos",
+    description: "Laboratorio de mecánica de fluidos.",
+    location: "Sótano, sector A (11-A-5).",
+    category: "Laboratorios",
+    floor: "Sótano",
+    image: "images/Sotano/labMecanicaFluidos.jpg"
+  },
+
+  // --- PISO 1 (sector A) ---
+  {
+    id: 39,
+    name: "11-B-9 Electrotecnia 2 y Fund. Ing. Electrónica",
+    description: "Laboratorio de electrotecnia 2 y fundamentos de electrónica.",
+    location: "Piso 1, sector A (11-B-9).",
+    category: "Laboratorios",
+    floor: "Piso 1",
+    image: "images/11b9-electrotecnia2.jpg"
+  },
+  {
+    id: 40,
+    name: "11-B-12 Laboratorio 126",
+    description: "Laboratorio 126.",
+    location: "Piso 1, sector A (11-B-12).",
+    category: "Laboratorios",
+    floor: "Piso 1",
+    image: "images/11b12-lab126.jpg"
+  },
+  {
+    id: 41,
+    name: "11-B-15",
+    description: "Aula/Laboratorio identificado como 11-B-15.",
+    location: "Piso 1, sector A (11-B-15).",
+    category: "Académico",
+    floor: "Piso 1",
+    image: "images/11b15.jpg"
+  },
+  {
+    id: 42,
+    name: "11-B-16 Laboratorio 127",
+    description: "Laboratorio 127.",
+    location: "Piso 1, sector A (11-B-16).",
+    category: "Laboratorios",
+    floor: "Piso 1",
+    image: "images/11b16-lab127.jpg"
+  },
+  {
+    id: 43,
+    name: "11-B-11 Laboratorio 133",
+    description: "Laboratorio 133.",
+    location: "Piso 1, sector A (11-B-11).",
+    category: "Laboratorios",
+    floor: "Piso 1",
+    image: "images/11b11-lab133.jpg"
+  },
+  {
+    id: 44,
+    name: "11-B-10 Laboratorio 125",
+    description: "Laboratorio 125.",
+    location: "Piso 1, sector A (11-B-10).",
+    category: "Laboratorios",
+    floor: "Piso 1",
+    image: "images/11b10-lab125.jpg"
+  },
+  {
+    id: 45,
+    name: "11-B-17 PROFEI (Electrónica Industrial)",
+    description: "Programa de Formación en Electrónica Industrial.",
+    location: "Piso 1, sector A (11-B-17).",
+    category: "Académico",
+    floor: "Piso 1",
+    image: "images/11b17-profei.jpg"
+  },
+  {
+    id: 46,
+    name: "11-B-6 Lab. 063 Electrotecnia 1",
+    description: "Laboratorio 063 de electrotecnia 1.",
+    location: "Piso 1, sector A (11-B-6).",
+    category: "Laboratorios",
+    floor: "Piso 1",
+    image: "images/11b6-electrotecnia1.jpg"
+  },
+  {
+    id: 47,
+    name: "11-B-4 Sala de Técnicos",
+    description: "Sala del personal técnico.",
+    location: "Piso 1, sector A (11-B-4).",
+    category: "Servicios",
+    floor: "Piso 1",
+    image: "images/11b4-salaTecnicos.jpg"
+  },
+  {
+    id: 48,
+    name: "11-B-3 Sanitario de Damas (P1A)",
+    description: "Baños de damas del piso 1 (sector A).",
+    location: "Piso 1, sector A (11-B-3).",
+    category: "Servicios",
+    floor: "Piso 1",
+    image: "images/11b3-banoDamas.jpg"
+  },
+  {
+    id: 49,
+    name: "11-B-2 Cuarto de Limpieza (P1A)",
+    description: "Cuarto de limpieza del piso 1 (sector A).",
+    location: "Piso 1, sector A (11-B-2).",
+    category: "Servicios",
+    floor: "Piso 1",
+    image: "images/11b2-cuartoLimpieza.jpg"
+  },
+  {
+    id: 50,
+    name: "11-B-1 Sanitario de Hombres (P1A)",
+    description: "Baños de hombres del piso 1 (sector A).",
+    location: "Piso 1, sector A (11-B-1).",
+    category: "Servicios",
+    floor: "Piso 1",
+    image: "images/11b1-banoHombres.jpg"
+  },
+  {
+    id: 51,
+    name: "11-B-7",
+    description: "Aula/Laboratorio identificado como 11-B-7.",
+    location: "Piso 1, sector A (11-B-7).",
+    category: "Académico",
+    floor: "Piso 1",
+    image: "images/11b7.jpg"
+  },
+  {
+    id: 52,
+    name: "11-B-8 Laboratorio 082",
+    description: "Laboratorio 082.",
+    location: "Piso 1, sector A (11-B-8).",
+    category: "Laboratorios",
+    floor: "Piso 1",
+    image: "images/11b8-lab082.jpg"
+  },
+
+  // --- PISO 1 (sector B) ---
+  {
+    id: 53,
+    name: "12-B-1 Laboratorio de Arquitectura",
+    description: "Laboratorio de arquitectura.",
+    location: "Piso 1, sector B (12-B-1).",
+    category: "Laboratorios",
+    floor: "Piso 1",
+    image: "images/12b1-arquitectura.jpg"
+  },
+  {
+    id: 54,
+    name: "12-B-15 Aula 114 / Taller 12-B-3 (Puerta 1)",
+    description: "Acceso 1 del Taller (Aula 114).",
+    location: "Piso 1, sector B (12-B-15).",
+    category: "Académico",
+    floor: "Piso 1",
+    image: "images/12b15-aula114-p1.jpg"
+  },
+  {
+    id: 55,
+    name: "12-B-11 Salón Japonés",
+    description: "Espacio académico denominado 'Salón Japonés'.",
+    location: "Piso 1, sector B (12-B-11).",
+    category: "Académico",
+    floor: "Piso 1",
+    image: "images/12b11-salonJapones.jpg"
+  },
+  {
+    id: 56,
+    name: "12-B-16 Aula 114 / Taller 12-B-3 (Puerta 2)",
+    description: "Acceso 2 del Taller (Aula 114).",
+    location: "Piso 1, sector B (12-B-16).",
+    category: "Académico",
+    floor: "Piso 1",
+    image: "images/12b16-aula114-p2.jpg"
+  },
+  {
+    id: 57,
+    name: "12-B-17 Lab. Inv. y Desarrollo en Informática",
+    description: "Laboratorio de investigación y desarrollo en informática.",
+    location: "Piso 1, sector B (12-B-17).",
+    category: "Laboratorios",
+    floor: "Piso 1",
+    image: "images/12b17-i+d-informatica.jpg"
+  },
+  {
+    id: 58,
+    name: "12-B-10",
+    description: "Aula/Laboratorio identificado como 12-B-10.",
+    location: "Piso 1, sector B (12-B-10).",
+    category: "Académico",
+    floor: "Piso 1",
+    image: "images/12b10.jpg"
+  },
+  {
+    id: 59,
+    name: "12-B-9 Diseño Mecánico",
+    description: "Área de diseño mecánico.",
+    location: "Piso 1, sector B (12-B-9).",
+    category: "Académico",
+    floor: "Piso 1",
+    image: "images/12b9-disenoMecanico.jpg"
+  },
+  {
+    id: 60,
+    name: "12-B-8 Sanitario de Damas (P1B)",
+    description: "Baños de damas del piso 1 (sector B).",
+    location: "Piso 1, sector B (12-B-8).",
+    category: "Servicios",
+    floor: "Piso 1",
+    image: "images/12b8-banoDamas.jpg"
+  },
+  {
+    id: 61,
+    name: "12-B-7 Cuarto de Limpieza (P1B)",
+    description: "Cuarto de limpieza del piso 1 (sector B).",
+    location: "Piso 1, sector B (12-B-7).",
+    category: "Servicios",
+    floor: "Piso 1",
+    image: "images/12b7-cuartoLimpieza.jpg"
+  },
+  {
+    id: 62,
+    name: "12-B-6 Sanitario de Hombres (P1B)",
+    description: "Baños de hombres del piso 1 (sector B).",
+    location: "Piso 1, sector B (12-B-6).",
+    category: "Servicios",
+    floor: "Piso 1",
+    image: "images/12b6-banoHombres.jpg"
+  },
+  {
+    id: 63,
+    name: "12-B-3",
+    description: "Aula/Laboratorio identificado como 12-B-3 (Taller).",
+    location: "Piso 1, sector B (12-B-3).",
+    category: "Académico",
+    floor: "Piso 1",
+    image: "images/12b3-taller.jpg"
+  },
+  {
+    id: 64,
+    name: "12-B-2 Conserjería (P1B)",
+    description: "Conserjería del sector B (piso 1).",
+    location: "Piso 1, sector B (12-B-2).",
+    category: "Servicios",
+    floor: "Piso 1",
+    image: "images/12b2-conserjeria.jpg"
+  },
+
+  // --- PISO 2 (sector A) ---
+  // (id 1 ya cubre Decanato de Docencia 11-C-4)
+  {
+    id: 65,
+    name: "11-C-6 Aula 16C",
+    description: "Aula 16C.",
+    location: "Piso 2, sector A (11-C-6).",
+    category: "Académico",
+    floor: "Piso 2",
+    image: "images/11c6-16C.jpg"
+  },
+  {
+    id: 66,
+    name: "11-C-3 Sanitario de Damas (P2A)",
+    description: "Baños de damas del piso 2 (sector A).",
+    location: "Piso 2, sector A (11-C-3).",
+    category: "Servicios",
+    floor: "Piso 2",
+    image: "images/11c3-banoDamas.jpg"
+  },
+  {
+    id: 67,
+    name: "11-C-2 Cuarto de Limpieza (P2A)",
+    description: "Cuarto de limpieza del piso 2 (sector A).",
+    location: "Piso 2, sector A (11-C-2).",
+    category: "Servicios",
+    floor: "Piso 2",
+    image: "images/11c2-cuartoLimpieza.jpg"
+  },
+  {
+    id: 68,
+    name: "11-C-1 Sanitario de Hombres (P2A)",
+    description: "Baños de hombres del piso 2 (sector A).",
+    location: "Piso 2, sector A (11-C-1).",
+    category: "Servicios",
+    floor: "Piso 2",
+    image: "images/11c1-banoHombres.jpg"
+  },
+  {
+    id: 69,
+    name: "11-C-7 Aula 15C",
+    description: "Aula 15C.",
+    location: "Piso 2, sector A (11-C-7).",
+    category: "Académico",
+    floor: "Piso 2",
+    image: "images/11c7-15C.jpg"
+  },
+  {
+    id: 70,
+    name: "11-C-17 Lab. RF y Microondas",
+    description: "Laboratorio de radiofrecuencia y microondas.",
+    location: "Piso 2, sector A (11-C-17).",
+    category: "Laboratorios",
+    floor: "Piso 2",
+    image: "images/11c17-rf-microondas.jpg"
+  },
+  {
+    id: 71,
+    name: "11-C-16 Lab. 124 Sistemas Digitales",
+    description: "Laboratorio 124 de sistemas digitales.",
+    location: "Piso 2, sector A (11-C-16).",
+    category: "Laboratorios",
+    floor: "Piso 2",
+    image: "images/11c16-sistemasDigitales.jpg"
+  },
+  {
+    id: 72,
+    name: "11-C-15 Laboratorio de Microprocesadores",
+    description: "Laboratorio de microprocesadores.",
+    location: "Piso 2, sector A (11-C-15).",
+    category: "Laboratorios",
+    floor: "Piso 2",
+    image: "images/11c15-microprocesadores.jpg"
+  },
+  {
+    id: 73,
+    name: "11-C-14 Laboratorio 131",
+    description: "Laboratorio 131.",
+    location: "Piso 2, sector A (11-C-14).",
+    category: "Laboratorios",
+    floor: "Piso 2",
+    image: "images/11c14-lab131.jpg"
+  },
+  {
+    id: 74,
+    name: "11-C-12 Lab. 066 Circuitos y Mediciones",
+    description: "Laboratorio 066 de circuitos y mediciones.",
+    location: "Piso 2, sector A (11-C-12).",
+    category: "Laboratorios",
+    floor: "Piso 2",
+    image: "images/11c12-circuitosMediciones.jpg"
+  },
+  {
+    id: 75,
+    name: "11-C-11 Mantenimiento de Laboratorios",
+    description: "Área de mantenimiento de laboratorios.",
+    location: "Piso 2, sector A (11-C-11).",
+    category: "Servicios",
+    floor: "Piso 2",
+    image: "images/11c11-mantenimiento.jpg"
+  },
+  {
+    id: 76,
+    name: "11-C-10 Laboratorio 065",
+    description: "Laboratorio 065.",
+    location: "Piso 2, sector A (11-C-10).",
+    category: "Laboratorios",
+    floor: "Piso 2",
+    image: "images/11c10-lab065.jpg"
+  },
+  {
+    id: 77,
+    name: "11-C-9 Lab. 132 (Puerta 1)",
+    description: "Laboratorio 132 — acceso 1.",
+    location: "Piso 2, sector A (11-C-9).",
+    category: "Laboratorios",
+    floor: "Piso 2",
+    image: "images/11c9-lab132-p1.jpg"
+  },
+  {
+    id: 78,
+    name: "11-C-8 Lab. 132 (Puerta 2)",
+    description: "Laboratorio 132 — acceso 2.",
+    location: "Piso 2, sector A (11-C-8).",
+    category: "Laboratorios",
+    floor: "Piso 2",
+    image: "images/11c8-lab132-p2.jpg"
+  },
+
+  // --- PISO 2 (sector B) ---
+  // (id 6 cubre el Cafetín)
+  {
+    id: 79,
+    name: "12-C-1 Investigaciones Microbiológicas",
+    description: "Laboratorio de investigaciones microbiológicas.",
+    location: "Piso 2, sector B (12-C-1).",
+    category: "Laboratorios",
+    floor: "Piso 2",
+    image: "images/12c1-microbiologicas.jpg"
+  },
+  {
+    id: 80,
+    name: "12-C-2 Ind. de la Leche (Puerta 1)",
+    description: "Industria de la Leche — acceso 1.",
+    location: "Piso 2, sector B (12-C-2).",
+    category: "Laboratorios",
+    floor: "Piso 2",
+    image: "images/12c2-indLeche-p1.jpg"
+  },
+  {
+    id: 81,
+    name: "12-C-3 Ind. de la Leche (Puerta 2)",
+    description: "Industria de la Leche — acceso 2.",
+    location: "Piso 2, sector B (12-C-3).",
+    category: "Laboratorios",
+    floor: "Piso 2",
+    image: "images/12c3-indLeche-p2.jpg"
+  },
+  {
+    id: 82,
+    name: "12-C-4 Entomología",
+    description: "Laboratorio de entomología.",
+    location: "Piso 2, sector B (12-C-4).",
+    category: "Laboratorios",
+    floor: "Piso 2",
+    image: "images/12c4-entomologia.jpg"
+  },
+  {
+    id: 83,
+    name: "12-C-5 Investigación en Termofluido",
+    description: "Laboratorio de investigación en termofluido.",
+    location: "Piso 2, sector B (12-C-5).",
+    category: "Laboratorios",
+    floor: "Piso 2",
+    image: "images/12c5-termofluido.jpg"
+  },
+  {
+    id: 84,
+    name: "12-C-7 Genética (Puerta 2)",
+    description: "Laboratorio de genética — acceso 2.",
+    location: "Piso 2, sector B (12-C-7).",
+    category: "Laboratorios",
+    floor: "Piso 2",
+    image: "images/12c7-genetica-p2.jpg"
+  },
+  {
+    id: 85,
+    name: "12-C-8 Genética (Puerta 1)",
+    description: "Laboratorio de genética — acceso 1.",
+    location: "Piso 2, sector B (12-C-8).",
+    category: "Laboratorios",
+    floor: "Piso 2",
+    image: "images/12c8-genetica-p1.jpg"
+  },
+  {
+    id: 86,
+    name: "12-C-9 Nutrición Animal",
+    description: "Laboratorio de nutrición animal.",
+    location: "Piso 2, sector B (12-C-9).",
+    category: "Laboratorios",
+    floor: "Piso 2",
+    image: "images/12c9-nutricionAnimal.jpg"
+  },
+  {
+    id: 87,
+    name: "12-C-10 Instrumentación Biológica",
+    description: "Laboratorio de instrumentación biológica.",
+    location: "Piso 2, sector B (12-C-10).",
+    category: "Laboratorios",
+    floor: "Piso 2",
+    image: "images/12c10-instrumentacionBiologica.jpg"
+  },
+  {
+    id: 88,
+    name: "12-C-11 Aula 5C (Primera puerta)",
+    description: "Aula 5C — primera puerta.",
+    location: "Piso 2, sector B (12-C-11).",
+    category: "Académico",
+    floor: "Piso 2",
+    image: "images/12c11-5C-p1.jpg"
+  },
+  {
+    id: 89,
+    name: "12-C-12 Aula 5C (Segunda puerta)",
+    description: "Aula 5C — segunda puerta.",
+    location: "Piso 2, sector B (12-C-12).",
+    category: "Académico",
+    floor: "Piso 2",
+    image: "images/12c12-5C-p2.jpg"
+  },
+  {
+    id: 90,
+    name: "12-C-13",
+    description: "Aula/Laboratorio identificado como 12-C-13.",
+    location: "Piso 2, sector B (12-C-13).",
+    category: "Académico",
+    floor: "Piso 2",
+    image: "images/12c13.jpg"
+  },
+  {
+    id: 91,
+    name: "12-C-24 Investigaciones Genéticas",
+    description: "Laboratorio de investigaciones genéticas.",
+    location: "Piso 2, sector B (12-C-24).",
+    category: "Laboratorios",
+    floor: "Piso 2",
+    image: "images/12c24-investigacionesGeneticas.jpg"
+  },
+  {
+    id: 92,
+    name: "12-C-23 Lab. 083 Bioquímica (Puerta 1)",
+    description: "Laboratorio 083 de bioquímica — acceso 1.",
+    location: "Piso 2, sector B (12-C-23).",
+    category: "Laboratorios",
+    floor: "Piso 2",
+    image: "images/12c23-bioquimica-p1.jpg"
+  },
+  {
+    id: 93,
+    name: "12-C-22 Lab. 083 Bioquímica (Puerta 2)",
+    description: "Laboratorio 083 de bioquímica — acceso 2.",
+    location: "Piso 2, sector B (12-C-22).",
+    category: "Laboratorios",
+    floor: "Piso 2",
+    image: "images/12c22-bioquimica-p2.jpg"
+  },
+  {
+    id: 94,
+    name: "12-C-20 Aula 07C",
+    description: "Aula 07C.",
+    location: "Piso 2, sector B (12-C-20).",
+    category: "Académico",
+    floor: "Piso 2",
+    image: "images/12c20-07C.jpg"
+  },
+  {
+    id: 95,
+    name: "12-C-18 Lab. 119 Ing. de Métodos (Puerta 1)",
+    description: "Laboratorio 119 de ingeniería de métodos — acceso 1.",
+    location: "Piso 2, sector B (12-C-18).",
+    category: "Laboratorios",
+    floor: "Piso 2",
+    image: "images/12c18-ingMetodos-p1.jpg"
+  },
+  {
+    id: 96,
+    name: "12-C-19 Lab. 119 Ing. de Métodos (Puerta 2)",
+    description: "Laboratorio 119 de ingeniería de métodos — acceso 2.",
+    location: "Piso 2, sector B (12-C-19).",
+    category: "Laboratorios",
+    floor: "Piso 2",
+    image: "images/12c19-ingMetodos-p2.jpg"
+  },
+  {
+    id: 97,
+    name: "12-C-17 Aula 06C",
+    description: "Aula 06C.",
+    location: "Piso 2, sector B (12-C-17).",
+    category: "Académico",
+    floor: "Piso 2",
+    image: "images/12c17-06C.jpg"
+  },
+  {
+    id: 98,
+    name: "12-C-16 Sanitario de Damas (P2B)",
+    description: "Baños de damas del piso 2 (sector B).",
+    location: "Piso 2, sector B (12-C-16).",
+    category: "Servicios",
+    floor: "Piso 2",
+    image: "images/12c16-banoDamas.jpg"
+  },
+  {
+    id: 99,
+    name: "12-C-15 Cuarto de Limpieza (P2B)",
+    description: "Cuarto de limpieza del piso 2 (sector B).",
+    location: "Piso 2, sector B (12-C-15).",
+    category: "Servicios",
+    floor: "Piso 2",
+    image: "images/12c15-cuartoLimpieza.jpg"
+  },
+  {
+    id: 100,
+    name: "12-C-14 Sanitario de Hombres (P2B)",
+    description: "Baños de hombres del piso 2 (sector B).",
+    location: "Piso 2, sector B (12-C-14).",
+    category: "Servicios",
+    floor: "Piso 2",
+    image: "images/12c14-banoHombres.jpg"
+  },
+
+  // --- PISO 3 (sector B) — adiciones que faltaban ---
+  {
+    id: 101,
+    name: "12-D-26",
+    description: "Aula/Laboratorio identificado como 12-D-26.",
+    location: "Piso 3, sector B (12-D-26).",
+    category: "Académico",
+    floor: "Piso 3",
+    image: "images/12d26.jpg"
+  },
+  {
+    id: 102,
+    name: "12-D-27",
+    description: "Aula/Laboratorio identificado como 12-D-27.",
+    location: "Piso 3, sector B (12-D-27).",
+    category: "Académico",
+    floor: "Piso 3",
+    image: "images/12d27.jpg"
+  },
+  {
+    id: 103,
+    name: "12-D-22",
+    description: "Aula/Laboratorio identificado como 12-D-22.",
+    location: "Piso 3, sector B (12-D-22).",
+    category: "Académico",
+    floor: "Piso 3",
+    image: "images/12d22.jpg"
+  },
+  {
+    id: 104,
+    name: "12-D-23 Botánica Agrícola",
+    description: "Laboratorio de botánica agrícola.",
+    location: "Piso 3, sector B (12-D-23).",
+    category: "Laboratorios",
+    floor: "Piso 3",
+    image: "images/12d23-botanicaAgricola.jpg"
+  },
+  {
+    id: 105,
+    name: "12-D-8",
+    description: "Aula/Laboratorio identificado como 12-D-8.",
+    location: "Piso 3, sector B (12-D-8).",
+    category: "Académico",
+    floor: "Piso 3",
+    image: "images/12d8.jpg"
+  },
+  {
+    id: 106,
+    name: "12-D-10 Microbiología General",
+    description: "Laboratorio de microbiología general.",
+    location: "Piso 3, sector B (12-D-10).",
+    category: "Laboratorios",
+    floor: "Piso 3",
+    image: "images/12d10MicrobiologiaGen.jpg"
+  },
+  {
+    id: 107,
+    name: "12-D-4",
+    description: "Aula/Laboratorio identificado como 12-D-4.",
+    location: "Piso 3, sector B (12-D-4).",
+    category: "Académico",
+    floor: "Piso 3",
+    image: "images/12d4.jpg"
+  },
+  {
+    id: 108,
+    name: "12-D-16",
+    description: "Aula/Laboratorio identificado como 12-D-16.",
+    location: "Piso 3, sector B (12-D-16).",
+    category: "Académico",
+    floor: "Piso 3",
+    image: "images/12d16.jpg"
+  },
+  {
+    id: 109,
+    name: "12-D-13 Fitopatología (Puerta 2)",
+    description: "Fitopatología — acceso 2.",
+    location: "Piso 3, sector B (12-D-13).",
+    category: "Laboratorios",
+    floor: "Piso 3",
+    image: "images/12d13-fitopatologia-p2.jpg"
   }
-
-
-
 ];
 
 // DOM elements
