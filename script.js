@@ -50,7 +50,7 @@ const locations = [
     name: "Decanato de Postgrado",
     description: "Área administrativa y de reuniones de postgrado.",
     location: "Piso 3, sector A (11-D-1).",
-    category: "Eventos",
+    category: "Administrativo",
     floor: "Piso 3",
     image: "images/Piso 3/DecanatoPost.jpg"
   },
